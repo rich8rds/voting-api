@@ -1,0 +1,33 @@
+CONTESTANT
+VOTER
+
+forSignup:
+id: string auto-generated
+firstname: string
+lastname: string
+email: string unique
+password: string
+imgURL: string
+role: CONTESTANT || VOTER
+
+Sign in:
+email: string
+password: string
+
+return jwt to successful login
+
+for voting
+voterId: string
+contestantId: string
+timestamp: date?
+point: 1
+
+
+for view votes 
+contestant {
+    contestantId: string
+    contestantName: string  firstname + ' ' + lastname
+    imgURL: string
+    numberOfVotes: number
+}
+totalVotes: number
