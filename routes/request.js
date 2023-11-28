@@ -5,7 +5,8 @@ const { OAuth2Client } = require('google-auth-library')
 
 
 router.post('/', async (req, res) => {
-    const redirectUrl = 'https://votes-api.onrender.com:4000/api/oauth'
+    const redirectUrl = 'https://votes-api.onrender.com/api/oauth'
+    // const redirectUrl = 'https://localhost:4000/api/oauth'
 
     const oAuth2Client = new OAuth2Client(
         process.env.GOOGLE_CLIENT_ID,

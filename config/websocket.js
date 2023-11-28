@@ -9,7 +9,8 @@ const io = new Server({
 
 const socket = io.on('connection', (socket) => socket)
 
-io.listen(4001)
+// io.listen(4001)
+io.listen(4000)
 
 module.exports = { socket, io}
 
