@@ -20,7 +20,7 @@ app.use(express.json())
 
 //CORS
 
-const whitelist = ['https://voting-app-fe.onrender.com/'] //, 'http://developer2.com']
+const whitelist = ['https://voting-app-fe.onrender.com'] //, 'http://developer2.com']
 const corsOptions = {
     origin: (origin, callback) => {
         if (whitelist.indexOf(origin) !== -1) {

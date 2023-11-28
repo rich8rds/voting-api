@@ -3,7 +3,7 @@ const { Server } = require('socket.io')
 const io = new Server({
     cors: {
         // origin: "http://localhost:5173"
-        origin: "https://voting-app-fe.onrender.com/"
+        origin: "https://voting-app-fe.onrender.com"
     }
 });
 

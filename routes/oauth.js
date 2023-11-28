@@ -4,7 +4,7 @@ const User = require('../models/User')
 require('dotenv').config()
 
 const { OAuth2Client } = require('google-auth-library')
-const REGISTER_URL = 'http://localhost:4000/api/auth/register'
+const REGISTER_URL = 'https://votes-api.onrender.com:4000/api/auth/register'
 
 const getUserData = async (accessToken) => {
     const response = await fetch(`https://www.googleapis.com/oauth2/v3/userinfo?access_token=${accessToken}`)
@@ -37,7 +37,7 @@ router.get('/', async (req, res) => {
 
 
     try {
-        const redirectUrl = 'http://localhost:4000/api/oauth'
+        const redirectUrl = 'https://votes-api.onrender.com:4000/api/oauth'
 
         const oAuth2Client = new OAuth2Client(
             process.env.GOOGLE_CLIENT_ID,
@@ -52,7 +52,8 @@ router.get('/', async (req, res) => {
         const user = oAuth2Client.credentials;
         // console.log('credentials', user);
         const data = await getUserData(oAuth2Client.credentials.access_token);
-        res.redirect(303, `http://localhost:5173?token=${data}`)
+        // res.redirect(303, `http://localhost:5173?token=${data}`)
+        res.redirect(303, `https://voting-app-fe.onrender.com?token=${data}`)
 
 
     } catch (err) {
