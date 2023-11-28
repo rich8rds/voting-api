@@ -3,9 +3,9 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 const dotenv = require('dotenv')
-const { createServer } = require('node:http');
+// const { createServer } = require('node:http');
 
-const server = createServer(app)
+// const server = createServer(app)
 dotenv.config()
 
 //ROUTES
@@ -44,4 +44,4 @@ app.use('/api/users', users)
 app.use('/api/oauth', oauth)
 app.use('/api/request', request)
 
-server.listen(PORT, () => console.log(`Server listening on port ${PORT}`))
+app.listen(PORT, () => console.log(`Server listening on port ${PORT}`))

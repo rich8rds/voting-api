@@ -4,7 +4,7 @@ const Pusher = require('pusher');
 const verifyToken = require('../verifyToken')
 const Vote = require('../models/Vote')
 const User = require('../models/User')
-const { socket } = require('../config/websocket')
+// const { socket } = require('../config/websocket')
 
 router.get('/', async (req, res) => {
     const contestants = await User.find({ role: 'CONTESTANT' })
@@ -66,11 +66,13 @@ router.post('/', async (req, res) => {
 
     new Vote(newVote).save()
         .then(response => {
-            socket.emit("vote", {
+            // socket.emit("vote", 
+            res.json({
                 success: true,
                 message: "Vote saved!",
                 vote: response
             })
+        // )
         }).catch(err => res.json(err))
 
 })
